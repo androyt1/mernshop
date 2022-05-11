@@ -4,5 +4,5 @@ import {combineReducers} from 'redux'
 
 export const rootReducer=combineReducers({
     allProducts:productReducer,
-    cart:cartReducer
+    cart:cartReducer   
 })

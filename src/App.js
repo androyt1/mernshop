@@ -14,9 +14,11 @@ import ScrollToTop from './components/ScrollToTop'
 
 const App = () => {
   const[category,setCategory]=useState('');
+  
+
   return (
     <BrowserRouter>   
-     <Navbar category={category} setCategory={setCategory} />
+     <Navbar category={category} setCategory={setCategory}  />
      <ScrollToTop>
       <Routes>
         <Route path='product-details/:id' element={<Details />} />

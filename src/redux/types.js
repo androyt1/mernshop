@@ -26,4 +26,4 @@ export const DECREMENT_QUANTITY = "DECREMENT_QUANTITY";
 export const CLEAR_CART = "CLEAR_CART";
 
 
-
+export const SEARCH_PRODUCTS = "SEARCH_PRODUCTS";

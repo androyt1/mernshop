@@ -5,21 +5,22 @@ import { addToCart } from '../redux/actions/cart';
 import { useDispatch ,useSelector} from 'react-redux';
 import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import Search from './Search';
 
-const ProductCard = ({products}) => { 
+const ProductCard = ({products,search}) => { 
 
     const dispatch = useDispatch();
  
   const cart=useSelector(state => state.cart); 
 
-
-  const addToCartHandler = (product) => {
+  
+  const addToCartHandler = (product) => { 
     dispatch(addToCart(product))  
   }
 
   return ( 
     <div className='w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-4 gap-y-20 mt-10  px-5 py-3 gap-2 '>
-       {products && products.products.map(product=>{
+       {products && products.filter(product=>product.name.toLowerCase().includes(search.toLowerCase())).map(product=>{
          product.count=1
          return(
           <div className='flex flex-col justify-center items-center shadow-md shadow-slate-400  bg-white  py-5 relative' key={product._id}>

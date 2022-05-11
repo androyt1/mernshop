@@ -5,8 +5,9 @@ import {FaRegWindowClose} from 'react-icons/fa'
 import Filter from './Filter'
 import Cart from '../pages/Cart'
 import { useSelector } from 'react-redux'
- 
-const Navbar = ({category,setCategory}) => {
+import Overlay from './Overlay' 
+
+const Navbar = ({category,setCategory,search,setSearch}) => {
  
  
   const cart=useSelector(state => state.cart);
@@ -33,8 +34,8 @@ const Navbar = ({category,setCategory}) => {
        
         <ul className='hidden md:flex'>
             <li className='mr-[5rem] cursor-pointer'><Link to='/'>Home</Link></li>
-            <li className='mr-[5rem] cursor-pointer'><Link to='/admin'>Admin</Link></li>           
             <li className='mr-[5rem] cursor-pointer '><Link to='/products'>Shop</Link></li>
+            <li className='mr-[5rem] cursor-pointer'><Link to='/admin'>Admin</Link></li>            
             <li className='mr-[5rem] cursor-pointer '><Link to='/login'>Login</Link></li>
         </ul> 
          
@@ -43,14 +44,17 @@ const Navbar = ({category,setCategory}) => {
            <AiOutlineShoppingCart  className={`text-3xl  transition-all duration-700 ease-linear text-slate-50  `}/>
             <span className='absolute top-[-5px] right-6 text-md text-white font-nunito font-semibold'>{ itens}</span>
          </div>
-       {
+      <div className='lg:hidden'>
+      {
           show ? <FaRegWindowClose className={`text-3xl cursor-pointer transition-all duration-700 ease-linear text-slate-50 `} onClick={handleShow}/> : <AiOutlineMenu className={`text-3xl cursor-pointer transition-all duration-700 ease-linear text-slate-50 `} onClick={handleShow}/>
         }
+      </div>
        </div>
 
 
-       <Filter show={show} setShow={setShow}  />
+       <Filter show={show} setShow={setShow} />
         <Cart operCart={operCart} />
+        <Overlay operCart={operCart} setOperCart={setOperCart} show={show} setShow={setShow} />
     </nav>
   )  
 }

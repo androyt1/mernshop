@@ -7,7 +7,7 @@ import {FiMinusCircle} from 'react-icons/fi'
 
 const Cart = ({ operCart }) => {
 
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state) => state.cart)
     const dispatch = useDispatch();
 
     const addition=(acc,currentValue)=>{
@@ -18,7 +18,7 @@ const Cart = ({ operCart }) => {
 
   return (
     <div
-      className={`fixed top-[60px] left-0 h-[calc(100vh-60px)] bg-[#fafbfc] w-[70%] md:w-[30%] transition-all duration-500 ease-linear flex flex-col justify-start py-10 items-center overflow-y-auto  ${
+      className={`fixed top-[60px] left-0 h-[calc(100vh-60px)] bg-[#fafbfc] w-[70%] md:w-[30%] transition-all duration-500 ease-linear flex flex-col justify-start py-10 z-20 items-center overflow-y-auto  ${
         operCart ? "translate-x-0" : "translate-x-[-800px]"
       }`}
     >

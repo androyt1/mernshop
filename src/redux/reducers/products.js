@@ -90,7 +90,7 @@ export const productReducer=(state=[],action)=>{
                 ...state,
                 loading:false,
                 error:payload
-            }
+            }      
         default:
             return state;
     }
