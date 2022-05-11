@@ -2,16 +2,15 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import {AiOutlineShoppingCart} from 'react-icons/ai'
 import { addToCart } from '../redux/actions/cart'; 
-import { useDispatch ,useSelector} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
-import Search from './Search';
 
-const ProductCard = ({products,search}) => { 
+const ProductCard = ({products,search,category}) => { 
 
     const dispatch = useDispatch();
  
-  const cart=useSelector(state => state.cart); 
+
 
   
   const addToCartHandler = (product) => { 
@@ -20,7 +19,7 @@ const ProductCard = ({products,search}) => {
 
   return ( 
     <div className='w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-4 gap-y-20 mt-10  px-5 py-3 gap-2 '>
-       {products && products.filter(product=>product.name.toLowerCase().includes(search.toLowerCase())).map(product=>{
+       {products && products.filter(product=>product.name.toLowerCase().includes(search.toLowerCase())).filter(product=>product.category.toLowerCase().includes(category)).map(product=>{
          product.count=1
          return(
           <div className='flex flex-col justify-center items-center shadow-md shadow-slate-400  bg-white  py-5 relative' key={product._id}>

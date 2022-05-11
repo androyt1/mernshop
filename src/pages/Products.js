@@ -22,9 +22,10 @@ const Products = () => {
 
   useEffect(() => {
     initFetch();
-  }, [initFetch]);
+  }, [initFetch]); 
 
   const [search, setSearch] = useState(""); 
+  const[category,setCategory] = useState("");
 
   //handle products search   
  
@@ -33,7 +34,7 @@ const Products = () => {
     <>
       <div className=" w-full flex flex-col justify-center items-center">
         <h1 className="text-center font-bold text-xl md:text-2xl text-black mt-6 ">
-          {loading ? "...Loading Products" : "Products"}
+          {loading ? "...Loading Products...please wait" : ""}
         </h1>
 
         <h1 className="text-center font-bold text-xl md:text-xl text-black mt-6 ">
@@ -41,9 +42,9 @@ const Products = () => {
         </h1>
       </div>
 
-      <Search search={search} setSearch={setSearch}  />
+      <Search search={search} setSearch={setSearch} category={category} setCategory={setCategory} />
 
-      <ProductCard products={products} search={search} />
+      <ProductCard products={products} search={search} category={category} />
     </>
   );
 };
