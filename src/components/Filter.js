@@ -12,10 +12,10 @@ const Filter = ({show,setShow,category,setCategory}) => {
        
 
          <ul className='flex flex-col items-start w-full md:hidden'>
-            <li className='mb-[1rem] text-md cursor-pointer'><Link to='/'>Home</Link></li>                  
-            <li className='mb-[1rem] text-md cursor-pointer '><Link to='/products'>Shop</Link></li>
-            <li className='mb-[1rem] text-md cursor-pointer'><Link to='/admin'>Admin</Link></li>   
-            <li className='mb-[1rem] text-md cursor-pointer'><Link to='/login'>Login</Link></li>
+            <li className='mb-[1rem] text-md cursor-pointer' onClick={()=>setShow(!show)}><Link to='/'>Home</Link></li>                  
+            <li className='mb-[1rem] text-md cursor-pointer 'onClick={()=>setShow(!show)} ><Link to='/products'>Shop</Link></li>
+            <li className='mb-[1rem] text-md cursor-pointer' onClick={()=>setShow(!show)}><Link to='/admin'>Admin</Link></li>   
+            <li className='mb-[1rem] text-md cursor-pointer' onClick={()=>setShow(!show)}><Link to='/login'>Login</Link></li>
         </ul>
 
        

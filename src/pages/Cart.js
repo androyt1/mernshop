@@ -4,24 +4,27 @@ import {removeFromCart,incrementQuantity ,decrementQuantity,clearCart } from '..
 import {AiFillDelete} from 'react-icons/ai'
 import {GrAdd} from 'react-icons/gr'
 import {FiMinusCircle} from 'react-icons/fi'
+import {AiFillCloseSquare} from 'react-icons/ai'
 
-const Cart = ({ operCart }) => {
+const Cart = ({ operCart,setOperCart }) => {
 
   const cart = useSelector((state) => state.cart)
     const dispatch = useDispatch();
 
     const addition=(acc,currentValue)=>{
-      return acc + currentValue.count * currentValue.price
+      return acc + currentValue.count * currentValue.price 
   }
   const total=cart.reduce(addition,0)
  
 
   return (
     <div
-      className={`fixed top-[60px] left-0 h-[calc(100vh-60px)] bg-[#fafbfc] w-[70%] md:w-[30%] transition-all duration-500 ease-linear flex flex-col justify-start py-10 z-20 items-center overflow-y-auto  ${
+      className={`fixed top-[60px] left-0 h-[calc(100vh-60px)] bg-[#fafbfc] w-[70%] md:w-[30%] transition-all duration-500 ease-linear flex flex-col justify-start py-10 z-20 items-center overflow-y-auto   ${
         operCart ? "translate-x-0" : "translate-x-[-800px]"
       }`}
     >
+      <AiFillCloseSquare className="text-4xl rounded-2xl text-slate-500 absolute right-4 cursor-pointer" onClick={()=>setOperCart(!operCart)}/>
+
       <h4 className="text-xl md:text-2xl font-nunito font-semibold text-slate-900">
         Cart
       </h4>

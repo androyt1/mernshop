@@ -52,8 +52,8 @@ const Navbar = ({category,setCategory,search,setSearch}) => {
        </div>
 
 
-       <Filter show={show} setShow={setShow} />
-        <Cart operCart={operCart} />
+       <Filter show={show} setShow={setShow} operCart={operCart} setOperCart={setOperCart} />
+        <Cart operCart={operCart} setOperCart={setOperCart}/>
         <Overlay operCart={operCart} setOperCart={setOperCart} show={show} setShow={setShow} />
     </nav>
   )  
